@@ -18,7 +18,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.create(employee_params)
 
     if @employee.valid?
-      SlackNotifier::CLIENT.ping "é a(o) nova(o) funcionária(o)"
+      SlackNotifier::CLIENT.ping "#{@employee.name} é a(o) nova(o) funcionária(o)"
       redirect_to employees_path
     else
       flash[:errors] = @employee.errors.full_messages
@@ -43,7 +43,7 @@ class EmployeesController < ApplicationController
 
   def destroy
     @employee.destroy
-    SlackNotifier::CLIENT.ping "não é mais funcionária(o)"
+    SlackNotifier::CLIENT.ping "#{@employee.name} não é mais funcionária(o)"
     redirect_to employees_path
   end
 
