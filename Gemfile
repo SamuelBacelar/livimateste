@@ -60,10 +60,7 @@ gem 'slack-notifier'
 
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+
 
 
 
