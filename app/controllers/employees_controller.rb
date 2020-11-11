@@ -18,7 +18,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.create(employee_params)
 
     if @employee.valid?
-      SlackNotifier::CLIENT.ping "#{@employee.name} é o novo funcionária(o)"
+      SlackNotifier::CLIENT.ping "#{@employee.name} é a(o) nova(o) funcionária(o)"
       redirect_to employees_path
     else
       flash[:errors] = @employee.errors.full_messages
