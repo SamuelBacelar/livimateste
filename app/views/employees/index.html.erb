@@ -1,0 +1,21 @@
+
+
+<div class="jumbotron">
+  <h1> Quadro de Funcionários </h1>
+  <%= button_to "Novo Funcionário", new_employee_path, method: :get, :class=> 'btn btn-big btn-purple' %>
+</div>
+
+
+<div class="container">
+  <div class="search">
+    <%= search_form_for @q, remote: true do |f| %>
+      <%= f.label :name_cont, 'Nome', :class=> 'hidden'%>
+      <%= f.search_field :name_cont, placeholder: 'Digite sua busca', :class=> 'search-input ' %>
+      <%= f.submit 'Buscar', :class=> 'btn btn-big btn-purple' %>
+    <% end %>
+  </div>
+
+  <div class="employee-list">
+    <%= render "employee_list" %>
+  </div>
+</div>

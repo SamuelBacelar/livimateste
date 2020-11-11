@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Livimanager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <h1>Livimanager</h1>
+        </div>
+        <div class="header-nav">
+          <% if user_signed_in? %>
+            <%= link_to image_tag("user-icon.svg", :class=>'nav-img'), edit_user_registration_path, :class => 'navbar-link' %>
+            <%= link_to image_tag("settings-icon.svg", :class=>'nav-img'), "/settings/index" %>
+            <%= link_to image_tag("logout-icon.svg", :class=>'nav-img'), destroy_user_session_path, method: :delete %>
+            
+          <% end %>
+        </div>
+      </div>
+    </header>
+    
+      <%= yield %>
+  </body>
+</html>

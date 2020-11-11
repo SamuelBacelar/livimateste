@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <h1> Informações do Funcionário </h1>
+  <%= link_to "Voltar página", '/', :class=> 'btn btn-gray btn-big purple-font' %>
+</div>
+
+<div class="container">
+    <div class="employee-form employee-show">
+            <h2><%= @employee.name %> </h2>
+            <p class="gray-font"><%= @employee.job.name %> </p>
+            <p><%= @employee.email %> </p>
+            <p>R$ <%= @employee.salary %> </p>
+            <%= button_to "Editar Funcionário", edit_employee_path, method: :get, :class=> 'btn btn-purple' %>
+            <%= button_to "Deletar Funcionário", employee_path, method: :delete, :class=> 'btn btn-gray red-font'%>
+    </div>
+</div>
+
+

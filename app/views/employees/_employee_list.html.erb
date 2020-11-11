@@ -1,0 +1,24 @@
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th><%= sort_link(@q, :name, 'Nome') %></th>
+                <th>E-mail</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @employees.each do |employee| %>
+                <tr>
+                    <td><%= link_to employee.name, employee_path(employee) %></td>
+                    <td><%= employee.email %></td>
+                    <td><%= employee.job.name %></td>
+                    <td>R$ <%= employee.salary %></td>
+                    <td class="action-btns"><%= button_to "Editar", edit_employee_path(employee.id), method: :get, :class=> 'btn btn-gray btn-small gray-font round-corner' %> <%= button_to "Deletar", employee_path(employee.id), method: :delete, :class=> 'btn btn-gray btn-small red-font round-corner' %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+

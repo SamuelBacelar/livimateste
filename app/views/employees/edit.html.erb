@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <h1> Editar Funcionário </h1>
+  <%= link_to "Voltar página", '/', :class=> 'btn btn-gray btn-big purple-font' %>
+</div>
+
+<div class="errors">
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <p style="color: red"><%= error%></p>
+        <%end%>
+    <%end%>
+</div>
+
+
+<div class="container">
+    <%= form_for @employee, :html=> {:class=> 'employee-form'} do |f|%>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.label :job %>
+        <%= f.select :job_id, Job.all.collect {|u| [u.name, u.id]} %>
+        <%= f.label :salary %>
+        <%= f.number_field :salary %>
+
+        <%= f.submit 'Salvar alterações', :class=> 'btn btn-purple'%>
+    <%end%>
+</div>
