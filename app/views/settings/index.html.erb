@@ -10,10 +10,10 @@
 <%end%>
 
 <div class="container">
-    <%= form_with(url: "/jobs", method: "post", class: "employee-form") do%>
+    <%= form_with(url: "/jobs", method: "post", class: "employee-form") do %>
         <h3>Cadastrar Cargo</h3>
-        <%= label_tag(:q, "Nome") %>
-        <%= text_field_tag(:q) %>
+        <%= label_tag(:name, "Nome") %>
+        <%= text_field(:job, :name) %>
 
         <%= submit_tag("Cadastrar", class: 'btn btn-purple') %>
     <%end%>
