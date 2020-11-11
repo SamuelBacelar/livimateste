@@ -6,7 +6,7 @@ ruby '2.7.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', group: :development
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -60,10 +60,9 @@ gem 'slack-notifier'
 
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
-group :development, :test do
-  gem 'sqlite3'
-end
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
+
 
